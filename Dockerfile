@@ -12,7 +12,7 @@ RUN echo "HONEYMARKER_VERSION=$HONEYMARKER_VERSION TARGETOS=$TARGETOS TARGETARCH
   && curl --location --fail "https://github.com/honeycombio/honeymarker/releases/download/$HONEYMARKER_VERSION/honeymarker-$TARGETOS-$TARGETARCH" -o "/app/honeymarker" \
   && chmod +x "/app/honeymarker"
 
-FROM gcr.io/distroless/static-debian12:debug
+FROM gcr.io/distroless/static-debian12
 ENV TZ=UTC
 WORKDIR /app
 COPY --from=builder /app /app
